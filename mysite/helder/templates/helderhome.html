@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin | helder</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="/static/assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="/static/frontend/images/logo/favicon.png" />
+</head>
+
+<body>
+
+  <div class="container-scroller">
+
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center border-bottom">
+        <!-- logo -->
+        <a class="navbar-brand brand-logo" href="{% url 'adhome' %}"><img src="/static/frontend/images/logo/heldtext.png"
+            alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="{% url 'adhome' %}"><img src="/static/frontend/images/logo/favicon.png"
+            alt="logo" /></a>
+      </div>
+
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-menu"></span>
+        </button>
+        <!-- for popup message from django -->
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-primary mb-0 px-5 mx-5" role="alert">
+              <p class="mx-5 font-weight-bold d-inline">{{message}}</p>
+              <button type="button" class="btn btn-outline-primary btn-sm mx-5 d-inline"
+                onclick="this.parentNode.style.display='none'">X</button>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item d-none d-lg-block full-screen-link">
+            <a href="{%url 'addph'%}"><button class="btn btn-block btn-lg btn-gradient-primary">+ Add
+                Product</button>
+            </a>
+          </li>
+
+          <li class="nav-item d-none d-lg-block full-screen-link">
+            <a class="nav-link">
+              <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+            </a>
+          </li>
+          <li class="nav-item d-none d-lg-block full-screen-link">
+            <a href="{% url 'adhome' %}">
+              <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="mdi mdi-home"></i>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item nav-logout d-none d-lg-block">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <i class="mdi mdi-power"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="/static/frontend/images/logo/favicon.png" alt="profile">
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <!-- to get user(admin first name) info -->
+                {% if request.user.is_authenticated %}
+                  <h5 class="mb-0 font-weight-normal"> Hello </h5>
+                  <span class="font-weight-bold mb-2">{{user.first_name}}</span>
+                  <span class="text-secondary text-small">ADMIN</span>
+                {% endif %}
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+
+          <!-- category item with filter option -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'adhome' %}">
+              <span class="menu-title">All</span>
+              <i class="mdi mdi-tshirt-crew menu-icon"></i>
+            </a>
+          </li>
+
+          {% for category in categories %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'adhome' %}?category={{category.name}}">
+              <span class="menu-title">{{category.name}}</span>
+              <i class="mdi mdi-tshirt-crew menu-icon"></i>
+            </a>
+          </li>
+          {%endfor%}
+
+          <!--closed nav and ul in extended page to avoid category creating form in extended page-->
+          <!-- main panel where other pages added -->
+          {%block mainpanel%}
+          <li class="nav-item sidebar-actions mb-3">
+
+            <form method='POST'>
+              {% csrf_token %}
+              <div class="form-group ">
+                <label class="pl-auto">Create a new category</label><br>
+                <label class="pl-auto">Select Top wear/Bottom Wear</label> <br>
+                <input type="radio" name="tpbm" id="kids" value="kids" required><label for="top"> KIDSWEAR</label><br>
+                <input type="radio" name="tpbm" id="top" value="top" required><label class="mt-1 ms-1" for="top"> TOP WEAR</label><br>
+                <input type="radio" name="tpbm" id="bottom" value="bottom" ><label class="mt-1 ms-1" for="bottom"> BOTTOM WEAR</label>
+                <input name="category_new" type="text" placeholder="Type new category name" class="form-control">
+                <button type='submit' class="btn btn-block btn-lg btn-gradient-primary mt-3 w-100">ADD</button>
+              </div>
+            </form>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- partial -->
+
+
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="mdi mdi-home"></i>
+              </span> HOME
+            </h3>
+          </div>
+          <!-- view products looped -->
+
+          <div class="row">
+            {%for photo in photos%}
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card p-3">
+                <div class="card-body px-0 py-3">
+                  <h4 class="card-title">{{photo.imgname}}</h4>
+                  <img class="w-100" src="{{photo.image.url}}" alt="img">
+                </div>
+                <div>
+                  <div class="py-2 d-flex justify-content-between">
+                    <!-- delb&edit are view functions name called from urls -->
+                    <a href="{%url 'delb' photo.id%}" onclick="return confirm('Are You Sure to delete?')">
+                      <button type="button" class="btn btn-outline-danger btn-icon-text p-2">
+                        <i class="mdi mdi-delete  btn-icon-prepend"></i> Delete </button></a>
+                    <a href="{%url 'edit' photo.id%}">
+                      <button type="button" class="btn btn-outline-info btn-icon-text p-2 ms-auto"><i
+                          class=" mdi mdi-pencil-box-outline  btn-icon-prepend"></i> Edit
+                      </button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © helderlifestyle.com
+              2022</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Developed and Designed by <a
+                href="">InstaDesign</a></span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      {%endblock%}
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/static/assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/assets/js/jquery.cookie.js" type="text/javascript"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/static/assets/js/off-canvas.js"></script>
+  <script src="/static/assets/js/hoverable-collapse.js"></script>
+  <script src="/static/assets/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/static/assets/js/dashboard.js"></script>
+  <script src="/static/assets/js/todolist.js"></script>
+  <!-- End custom js for this page -->
+</body>
+
+</html>

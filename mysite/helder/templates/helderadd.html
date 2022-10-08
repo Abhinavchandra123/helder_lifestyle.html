@@ -1,0 +1,166 @@
+{%extends 'helderhome.html'%}
+{%block mainpanel%}
+</ul>
+</nav>
+<script>
+  function CheckImageSize() {
+      var image = document.getElementById("Image13").files[0];
+      createReader(image, function (w, h) {
+          if (w < 750 || h < 1000) {
+              alert("Width is wrong: " + w +
+                  "pixels, Height is wrong: " + h + "pixels");
+          }
+      });
+  }
+  function createReader(file, whenReady) {
+      var reader = new FileReader;
+      reader.onload = function (evt) {
+          var image = new Image();
+          image.onload = function (evt) {
+              var width = this.width;
+              var height = this.height;
+              if (whenReady) whenReady(width, height);
+          };
+          image.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+  }
+</script>
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="col-lg-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add New Product</h4>
+
+          <form class="forms-sample " name=validityForm method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+              <label for="category">Select a category</label>
+              <select required="required" class="form-control" name="category">
+                <option value='' aria-required="">Select a category...</option>
+                {% for category in categories %}
+                <option value='{{category.id}}'>{{category.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label >Product Name</label>
+              <input type="text" class="form-control" name="imgname" placeholder="Name"  >
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" name="description" placeholder="Description" >
+            </div>
+
+            <div class="form-group">
+              <label for="size">Size Chart</label>
+              <input type="text" class="form-control" name="size" placeholder="Size" >
+            </div>
+
+            <div class="form-group">
+              <label for="fabric">Fabric</label>
+              <input type="text" class="form-control" name="fabric" placeholder="Fabric" required>
+            </div>
+
+            <div class="form-group">
+              <label for="type">Pattern</label>
+              <select  class="form-control" name="pattern">
+                {%for pattern in patterns%}
+                <option value='{{pattern.id}}'>{{pattern.pattern}}</option>
+                {%endfor%}
+            </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pattern">Type Of Dress</label>
+              <select  class="form-control" name="type">
+                {%for type in typess%}
+                <option value='{{type.id}}'>{{type.types}}</option>
+                {%endfor%}
+            </select>
+            </div>
+
+            <div class="form-group">
+              <label for="dtls4">Full sleeve/ Half sleeve </label>
+              <select  class="form-control" name="dtls4">
+                <option value='NONE'>NONE...</option>
+                <option value='full'>Full sleeve</option>
+                <option value='half'>Half sleeve</option>
+            </select>
+            </div>
+
+            <!--<div class="form-group">-->
+            <!--  <label for="dtls4">Details</label>-->
+            <!--  <input type="text" class="form-control" name="dtls4" placeholder="Not Required">-->
+            <!--</div>-->
+
+            <div class="form-group">
+              <label for="dtls5">Details</label>
+              <input type="text" class="form-control" name="dtls5" placeholder="Not Required">
+            </div>
+
+
+
+            <!--  'create new category' should remove after created category fully -->
+
+            <div class="form-group">
+
+              <label>Upload main image</label>
+              <div class="input-group col-xs-12">
+                <input type="file" name="image" id="Image13" onchange="CheckImageSize()" class="form-control file-upload-browse" placeholder="Upload Image" required/>
+              </div>
+                <p><span class="text-danger fs-3">*</span>Image width X height must be greater than 750px X 1000px</p>
+
+              <label>Upload Slide image1</label>
+              <div class="input-group col-xs-12">
+                <input type="file" name="image1" class="form-control file-upload-browse" placeholder="Upload Image" required>
+              </div>
+              <p><span class="text-danger fs-3">*</span>Image width X height must be greater than 750px X 1000px</p>
+
+              <label>Upload Slide image2</label>
+              <div class="input-group col-xs-12">
+                <input type="file" name="image2" class="form-control file-upload-browse" placeholder="Upload Image" required>
+              </div>
+              <p><span class="text-danger fs-3">*</span>Image width X height must be greater than 750px X 1000px</p>
+
+              <label>Upload Slide image3</label>
+              <div class="input-group col-xs-12">
+                <input type="file" name="image3" class="form-control file-upload-browse" placeholder="Upload Image" required>
+              </div>
+              <p><span class="text-danger fs-3">*</span>Image width X height must be greater than 750px X 1000px</p>
+
+              <label>Upload Slide image4</label>
+              <div class="input-group col-xs-12">
+                <input type="file" name="image4" class="form-control file-upload-browse" placeholder="Upload Image" required>
+              </div>
+              <p><span class="text-danger fs-3">*</span>Image width X height must be greater than 750px X 1000px</p>
+
+            </div>
+            <div class="form-group">
+              <button type="submit" onclick="return confirm('Sure to submit ?')"class="btn btn-primary me-2">Submit</button>
+              <a href="{% url 'adhome' %}" class="btn btn-dark my-3">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:partials/_footer.html -->
+  <footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © helderlifestyle.com
+        2022</span>
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Developed and Designed by <a
+          href="">InstaDesign</a></span>
+    </div>
+  </footer>
+  <!-- partial -->
+</div>
+<!-- main-panel ends -->
+
+{%endblock mainpanel%}

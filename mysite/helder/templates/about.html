@@ -1,0 +1,120 @@
+{%extends 'index.html'%}
+{%block mainpanelll%}
+{%load static%}
+<div class="page-heading about-page-heading" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-content">
+                    <h2>About Our Company</h2>
+                    <span>Helder Lifestyle</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Main Banner Area End ***** -->
+
+<!-- ***** About Area Starts ***** -->
+<div class="about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-image">
+                    <img src="{%static 'frontend/images/about/HelderLogo.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="right-content">
+                    <h4>About Helder</h4>
+                    <span >Jack in boys! We are Helder, where you discover the best and unique styles. Let your occasion
+                    be anything, we have got everything for you to dress up and show up. Casuals,formals, and everything
+                    that goes effortlessly on you.</span>
+                    <p>
+                    The lively and trendy collections are designed and
+                    Curated by fashion experts from around the world.
+                    Our clothes are durable and comfortable, as we make no compromise.</p>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** About Area Ends ***** -->
+
+<!-- ** Subscribe Area Starts ** -->
+<div class="subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-heading">
+                    <h2>Pitch into our Newsletter </h2>
+                    <span>Know the latest and updated Helder stuffs.</span>
+                </div>
+                <form id="subscribe" action="" method="get">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Your Name" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-5">
+                            <fieldset>
+                                <input name="email" type="text" id="email" pattern="[^ @]@[^ @]"
+                                    placeholder="Your Email Address" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-2">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="main-dark-button"><i
+                                        class="fa fa-paper-plane"></i></button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-6">
+                        <ul>
+                            <li>Location:<br><span>Agc Clothing LLP, Nadakkavu, Vandipetta, Kerala</span></li>
+                            <li>Phone:<br><span>010-020-0340</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul>
+                            <li>Websites:<br><span>www.helderlifestyle.com</span></li>
+                            <li>Email:<br><span>info@helderlifestyle.com</span></li>
+                            <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ** Subscribe Area Ends ** -->
+
+<script>
+
+    $(function () {
+        var selectedClass = "";
+        $("p").click(function () {
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+            $("#portfolio div").not("." + selectedClass).fadeOut();
+            setTimeout(function () {
+                $("." + selectedClass).fadeIn();
+                $("#portfolio").fadeTo(50, 1);
+            }, 500);
+
+        });
+    });
+
+</script>
+{%endblock%}

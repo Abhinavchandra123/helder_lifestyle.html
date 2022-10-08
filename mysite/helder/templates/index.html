@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <title>Home | Helder</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{%static 'frontend/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{%static 'frontend/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" href="{%static 'frontend/css/style.css' %}">
+
+    <link rel="stylesheet" href="{%static 'frontend/css/owl-carousel.css' %}">
+
+    <link rel="stylesheet" href="{%static 'frontend/css/lightbox.css' %}">
+
+    <link rel="shortcut icon" href="/static/frontend/images/logo/favicon.png" />
+
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{% url 'ind' %}" class="logo">
+                            <img src="{%static 'frontend/images/logo/logolongblue.png' %}" height="60px">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                               <!--<li class="scroll-to-section"><a href="{% url 'ind'%}" class="active">HOME</a></li>-->
+                            <li class="scroll-to-section"><a href="{% url 'ind'%}">HOME</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'about'%}">ABOUT US</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'pdct'%}">PRODUCTS</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'contact'%}">CONTACT</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ***** Header Area End ***** -->
+    {%block mainpanelll%}
+
+    <!-- ** Main Banner Area Starts ** -->
+    <section class="section" id="manban" style="max-height: 100vh;overflow-y: hidden;">
+        <div class="men-item-carousel">
+            <div class="owl-main-ban owl-carousel">
+                <div class="item">
+                    <div class="thumb">
+
+                        <img src="{% static 'frontend/images/banner/homeban01.jpg' %}" alt="">
+                    </div>
+
+
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                        <img src="{% static 'frontend/images/banner/homeban02.jpg' %} " alt="">
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                        <img src="{% static 'frontend/images/banner/homeban03.jpg' %}" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ** Main Banner Ends ** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner" id="top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-content">
+                        <div class="thumb">
+                            <div class="inner-content">
+                                <h4>We Are Helder</h4>
+                                <span>Fashion is all about epitomal beauty. We design to the epitome of fashionable
+                                    fiesta.</span>
+                                <div class="main-border-button">
+                                    <a href="{% url 'about' %}">About Us</a>
+                                </div>
+                            </div>
+                            <img src="{%static 'frontend/images/home/men00.jpg' %}" alt="123">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <!-- <h4>Women</h4> -->
+                                            <span>Inspiration</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Inspiration</h4>
+                                                <p>Why not slay in elegance!!
+                                                </p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'pdct'%}">Our Products</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{%static 'frontend/images/home/men01.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <!-- <h4>Creativity</h4> -->
+                                            <span>Creativity</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Creativity</h4>
+                                                <p>Every bit of fabric is creative in our team’s eyes.
+                                                </p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'pdct'%}">Our Products</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{%static 'frontend/images/home/men02.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <!-- <h4>Kids</h4> -->
+                                            <span>Fashion</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Fashion</h4>
+                                                <p>The epitome of iconic men’s wear.
+                                                </p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'pdct'%}">Our Products</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{%static 'frontend/images/home/men03.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <!-- <h4>Accessories</h4> -->
+                                            <span>Quality</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Quality</h4>
+                                                <p>The garments that is in style and in grade.
+                                                </p>
+                                                <div class="main-border-button">
+                                                    <a href="{% url 'pdct'%}">Our Products</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="{%static 'frontend/images/home/men04.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- ***** Men Area Starts ***** -->
+    <section class="section" id="men">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Top Wears</h2>
+                        <span>To top up the look, finely and beautifully designed top wears.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            {%for top in top%}
+                            <div class="item">
+                                <div class="thumb">
+                                    <a href="{% url 'topw' %}"><img src="{{top.image.url}}" alt=""></a>
+
+                                </div>
+                                <div class="down-content">
+                                    <h4>{{top.imgname}}</h4>
+
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ***** Men Area Ends ***** -->
+
+    <!-- ***** Men Area Starts ***** -->
+    <section class="section" id="men">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Bottom Wears</h2>
+                        <span>We know what goes effortlessly as bottoms.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            {%for bottom in bottom%}
+                            <div class="item">
+                                <div class="thumb">
+                                <a href="{% url 'bott' %}"><img src="{{bottom.image.url}}" alt=""></a>
+
+                                </div>
+                                <div class="down-content">
+                                    <h4>{{bottom.imgname}}</h4>
+
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Men Area Ends ***** -->
+
+    <!-- ***** Explore Area Starts ***** -->
+    <section class="section" id="explore">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-content">
+                        <h2>Explore Our Products</h2>
+                        <span>Our fashions never fade, they slay in style.</span>
+                        <div class="quote">
+                            <i class="fa fa-quote-left"></i>
+                            <p>Trends and fashion may change but styling those as eternal as it could be is what we aim with our products.</p>
+                        </div>
+                        <p>The best and unique clothes. Producing to dress you up in grace in your most spesh occasions. Be the exceptional in
+                            exotic fashion.
+                        </p>
+                        <div class="main-border-button">
+                            <a href="{% url 'pdct' %}">Our Products</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <!-- <div class="col-lg-6">
+                                <div class="leather">
+                                    <h4>Leather Bags</h4>
+                                    <span>Latest Collection</span>
+                                </div>
+                            </div> -->
+                            <div class="col-lg-6">
+                                <div class="first-image">
+                                    <img src="{%static 'frontend/images/home/men07.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="second-image">
+                                    <img src="{%static 'frontend/images/home/men06.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-6">
+                                <div class="types">
+                                    <h4>Different Types</h4>
+                                    <span>Over 304 Products</span>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Explore Area Ends ***** -->
+
+    <!-- ***** Social Area Starts ***** -->
+    <!-- <section class="section" id="social">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Social Media</h2>
+                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row images">
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Fashion</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{%static 'frontend/images/instagram-01.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>New</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{%static 'frontend/images/instagram-02.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Brand</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{%static 'frontend/images/instagram-03.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Makeup</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{%static 'frontend/images/instagram-04.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Leather</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{%static 'frontend/images/instagram-05.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Bag</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="{%static 'frontend/images/instagram-06.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- ***** Social Area Ends ***** -->
+    {%endblock%}
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="{%static 'frontend/images/logo/logotopwhite.png' %}" height="60px" alt="hexashop ecommerce templatemo">
+                        </div>
+                        <ul>
+                            <li><a href="#">Agc Clothing LLP, City Corner Building, Bilathikulam Road, Nadakkavu (p.o),
+                                    Vandipetta, Kerala, 67301</a></li>
+                            <li><a href="#">agcclothing1@gmail.com</a></li>
+                            <!-- <li><a href="#">010-020-0340</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Shopping &amp; Categories</h4>
+                    <ul>
+                        <li><a href="{% url 'topw'%}">Top Wear Shopping</a></li>
+                        <li><a href="{% url 'bott'%}">Bottom Wear Shopping</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="{% url 'ind'%}">Home</a></li>
+                        <li><a href="{% url 'about'%}">About Us</a></li>
+                        <li><a href="{% url 'pdct'%}">Products</a></li>
+                        <li><a href="{% url 'contact'%}">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Help &amp; Information</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Watsapp</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © 2022 Agc Clothing LLP. All Rights Reserved.
+                            <!-- <br>Distributed By: <a href="https://themewagon.com" target="_blank"
+                                title="free & premium responsive templates">ThemeWagon</a> -->
+                        </p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-behance"></i></a></li> -->
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="{%static 'frontend/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{%static 'frontend/js/popper.js' %}"></script>
+    <!-- <script src="{%static 'frontend/js/bootstrap.min.js' %}"></script> -->
+
+    <!-- Plugins -->
+    <script src="{%static 'frontend/js/owl-carousel.js' %}"></script>
+    <script src="{%static 'frontend/js/accordions.js' %}"></script>
+    <script src="{%static 'frontend/js/datepicker.js' %}"></script>
+    <script src="{%static 'frontend/js/scrollreveal.min.js' %}"></script>
+    <script src="{%static 'frontend/js/waypoints.min.js' %}"></script>
+    <script src="{%static 'frontend/js/jquery.counterup.min.js' %}"></script>
+    <script src="{%static 'frontend/js/imgfix.min.js' %}"></script>
+    <script src="{%static 'frontend/js/slick.js' %}"></script>
+    <script src="{%static 'frontend/js/lightbox.js' %}"></script>
+    <script src="{%static 'frontend/js/isotope.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{%static 'frontend/js/custom.js' %}"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

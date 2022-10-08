@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <title>Helder</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{%static 'frontend/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{%static 'frontend/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" href="{%static 'frontend/css/style.css' %}">
+
+    <link rel="stylesheet" href="{%static 'frontend/css/owl-carousel.css' %}">
+
+    <link rel="stylesheet" href="{%static 'frontend/css/lightbox.css' %}">
+
+    <link rel="stylesheet" href="{%static 'frontend/css/custom.css' %}">
+
+    <link rel="shortcut icon" href="/static/frontend/images/logo/favicon.png" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{% url 'ind' %}" class="logo">
+                            <img src="{%static 'frontend/images/logo/logolongblue.png' %}" height="60px">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="{% url 'ind'%}">HOME</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'about'%}">ABOUT US</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'pdct'%}">PRODUCTS</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'contact'%}">CONTACT</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="page-heading about-page-heading" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>Check Our Products</h2>
+
+                        <!-- <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+ {%block mainpanell%}
+
+   <!-- ***** Products Area Starts ***** -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="section-heading mt-0">
+                        <!-- <h2>Our Latest Products</h2>
+                        <span>Check out all of our products.</span> -->
+                        <div class=" py-3">
+                            <button  class="btn btn-secondary fs- m-2" type="button" >
+                                <a href="{% url 'pdct'%}" class="text-black">All Products</a>
+                                </button>
+                            <div class="dropdown d-inline">
+                                <button class="btn btn-secondary dropdown-toggle fs- m-2" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Top Wear
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url 'topw' %}">All</a>
+                                    {%for top in top%}
+                                    <a class="dropdown-item"
+                                        href="{% url 'topw' %}?category={{top.name}}">{{top.name}}</a>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                            <div class="dropdown d-inline">
+                                <button class="btn btn-secondary dropdown-toggle fs- m-2" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Bottom Wear
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url 'bott' %}">All</a>
+                                    {%for bottom in bottom%}
+                                    <a class="dropdown-item"
+                                        href="{% url 'bott' %}?category={{bottom.name}}">{{bottom.name}}</a>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                            <div class="dropdown d-inline">
+                                <button class="btn btn-secondary dropdown-toggle fs- m-2" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Kids Wear
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url 'kids' %}">All</a>
+                                    {%for kid in kids%}
+                                    <a class="dropdown-item"
+                                        href="{% url 'kids' %}?category={{kid.name}}">{{kid.name}}</a>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                        </div>
+    <!--                    <form class="text-center py-4">-->
+    <!--                        <i class="fa  fa-search"> </i>-->
+    <!--    <input type="text" id="filterInput" placeholder="Filter">-->
+    <!--</form>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row prodcont">
+                {%for photo in photos%}
+                <div class="col-lg-4 col-md-6 proddiv" data-bs-toggle="modal" data-bs-target="#exampleModal{{photo.id}}">
+                    <div class="item">
+                        <div class="thumb">
+                            <!-- <div class="hover-content">
+                                <ul>
+                                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div> -->
+                            <img class="product-image" src="{{photo.image.url}}" alt="product image">
+                        </div>
+                        <div class="down-content">
+                            <h4 >{{photo.imgname}}</h4>
+                            <h5 class="prodtitle d-none">{{photo.detail2}}</h5>
+                            <!-- <span>$120.00</span> -->
+                            <!-- <ul class="stars">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        {%endblock%}
+    </section>
+
+     <script>
+        let grid = document.querySelector(".prodcont");
+let filterInput = document.getElementById("filterInput");
+
+
+// add event listener
+filterInput.addEventListener('keyup', filterProducts);
+
+// callback function
+function filterProducts(){
+    let filterValue = filterInput.value.toUpperCase();
+    let item = grid.querySelectorAll('.proddiv')
+    // console.log(filterValue);
+
+    for (let i = 0; i < item.length; i++){
+        let span = item[i].querySelector('.prodtitle');
+
+        if(span.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+            item[i].style.display = "initial";
+        }else{
+            item[i].style.display = "none";
+        }
+
+    }
+}
+    </script>
+    <!-- ***** Products Area Ends ***** -->
+    <!-- Modal -->
+    {%for photo in photos%}
+    <div class="modal fade" id="exampleModal{{photo.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 1000px;">
+            <div class="modal-content p-4">
+                <div class="modal-header">
+                    <!--<p class="modal-title" id="exampleModalLabel{{photo.id}}">{{photo.imgname}}</p>-->
+                    <h4>{{photo.imgname}}</h4>
+                    <button type="button" style="font-size: 15px; margin-right: 10px;" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8 ">
+
+                            <!-- <div class="codepen-container"> -->
+                            <div class="content-container">
+
+
+
+                                <div class="product-image--container row">
+                                    <div class="col-10">
+                                        <figure class="zoom  backg" onmousemove="zoom(event)"
+                                            style="background-image: url({{photo.image.url}})">
+                                            <img class="product-image--featured" src="{{photo.image.url}}" />
+                                        </figure>
+                                        <!-- <img class="product-image--featured" id="{{photo.id}}" src="{{photo.image.url}}" alt="toaster" /> -->
+                                    </div>
+                                    <div class="col-2 p-0">
+                                        <ul class="product-image--list">
+                                            <li class="item-selected firstpicture"><img class="w-100" src="{{photo.image.url}}"
+                                                    class="product-image--item" />
+                                            </li>
+                                            <li class="my-2"><img class="w-100" src="{{photo.image1.url}}"
+                                                    class="product-image--item" /></li>
+                                            <li class="my-2"><img class="w-100" src="{{photo.image2.url}}"
+                                                    class="product-image--item" /></li>
+                                            <li class="my-2"><img class="w-100" src="{{photo.image3.url}}"
+                                                    class="product-image--item" /></li>
+                                            <li class="my-2"><img class="w-100" src="{{photo.image4.url}}"
+                                                    class="product-image--item" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="right-content">
+                                <h6>Details</h6>
+                                <div class="quantity-content">
+                                    <ul>
+                                        <li>
+                                            <p><span>Product Name : </span>{{photo.imgname}}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>Avalialble Sizes : </span>{{photo.size}}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>Pattern : </span>{{photo.pattern}}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>Fabric : </span>{{photo.detail1}}</p>
+                                        </li>
+
+                                    </ul>
+                                    <!--<div class="left-content">-->
+                                    <!--    <h6>No. of Orders</h6>-->
+                                    <!--</div>-->
+                                </div>
+
+                            </div>
+                            <h6>Description</h6>
+                            <div class="quantity-content">
+                                    <ul>
+                                        <li>
+                                            <p>{{photo.description}}</p>
+                                        </li>
+                                        <li>
+                                            <p>{{photo.detail5}}</p>
+                                        </li>
+                                    </ul>
+                                    <!--<div class="left-content">-->
+                                    <!--    <h6>No. of Orders</h6>-->
+                                    <!--</div>-->
+                                </div>
+
+                            <div class="total">
+                                    <!--<h4>Total: $210.00</h4>-->
+                                    <div class="main-border-button"><a href="{% url 'contact'%}">Get this Product</a></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary fs-1" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+
+
+    <style media="screen">
+        figure.zoom {
+            /* background-position: 50% 50%; */
+            /* position: relative; */
+            /* margin: 150px auto; */
+            /* border: 5px solid white; */
+            /* box-shadow: -1px 5px 15px black; */
+            /* height: 300px; */
+            /* width: 500px; */
+            overflow: hidden;
+            cursor: zoom-in;
+        }
+
+        figure.zoom img:hover {
+            opacity: 0;
+        }
+
+        figure.zoom img {
+            transition: opacity 0.5s;
+            display: block;
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        function zoom(e) {
+            var zoomer = e.currentTarget;
+            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+            x = offsetX / zoomer.offsetWidth * 100
+            y = offsetY / zoomer.offsetHeight * 100
+            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        }
+
+
+    </script>
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="{%static 'frontend/images/logo/logotopwhite.png' %}" height="60px"
+                                alt="hexashop ecommerce templatemo">
+                        </div>
+                        <ul>
+                            <li><a href="#">Agc Clothing LLP, City Corner Building, Bilathikulam Road, Nadakkavu (p.o),
+                                    Vandipetta, Kerala, 67301</a></li>
+                            <li><a href="#">agcclothing1@gmail.com</a></li>
+                            <!-- <li><a href="#">010-020-0340</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Shopping &amp; Categories</h4>
+                    <ul>
+                        <li><a href="{% url 'topw'%}">Top Wear Shopping</a></li>
+                        <li><a href="{% url 'bott'%}">Bottom Wear Shopping</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="{% url 'ind'%}">Home</a></li>
+                        <li><a href="{% url 'about'%}">About Us</a></li>
+                        <li><a href="{% url 'pdct'%}">Products</a></li>
+                        <li><a href="{% url 'contact'%}">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Help &amp; Information</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Watsapp</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © 2022 Agc Clothing LLP. All Rights Reserved.
+                            <!-- <br>Distributed By: <a href="https://themewagon.com" target="_blank"
+                                title="free & premium responsive templates">ThemeWagon</a> -->
+                        </p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-behance"></i></a></li> -->
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="{%static 'frontend/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{%static 'frontend/js/popper.js' %}"></script>
+    <script src="{%static 'frontend/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{%static 'frontend/js/owl-carousel.js' %}"></script>
+    <script src="{%static 'frontend/js/accordions.js' %}"></script>
+    <script src="{%static 'frontend/js/datepicker.js' %}"></script>
+    <script src="{%static 'frontend/js/scrollreveal.min.js' %}"></script>
+    <script src="{%static 'frontend/js/waypoints.min.js' %}"></script>
+    <script src="{%static 'frontend/js/jquery.counterup.min.js' %}"></script>
+    <script src="{%static 'frontend/js/imgfix.min.js' %}"></script>
+    <script src="{%static 'frontend/js/slick.js' %}"></script>
+    <script src="{%static 'frontend/js/lightbox.js' %}"></script>
+    <script src="{%static 'frontend/js/isotope.js' %}"></script>
+    <script src="{%static 'frontend/js/select.js' %}"></script>
+
+
+
+    <!-- Global Init -->
+    <script src="{%static 'frontend/js/custom.js' %}"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

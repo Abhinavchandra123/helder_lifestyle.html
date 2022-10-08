@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+  margin: 0;
+} 
+
+.owl-wrapper-outer {
+  height: 100% !important;    
+}
+
+.owl-wrapper {
+   height: 100%;   
+}
+
+.owl-item {
+  height: 100%;
+}
+
+.b-Amarelo {
+  height: 100%;
+}
+
+.owl-item h1 {
+  margin: 0;
+}
+
+.main-border-button select:hover {
+    background-color: #fff;
+    color: #2a2a2a;
+  }
+  
+
+  .main-border-button select,button,.dropdown-menu {
+    font-size: 13px;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 25px;
+ 
+    font-weight: 500;
+    border-radius: 0%;
+  }
+ 
+#products .section-heading button{
+  background-color: transparent;
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  padding: 12px 25px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all .3s;
+  border-radius: 0%;
+}
